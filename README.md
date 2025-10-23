@@ -1,59 +1,30 @@
-# CORE - Object-Centric AI Frontend
+# CORE Object-Centric AI - Frontend
 
-This is the frontend for the CORE Object-Centric AI application, designed to be deployed on Netlify.
+This is the frontend-only repository for the CORE Object-Centric AI project, designed specifically for Netlify deployment.
 
-## 🚀 Deployment to Netlify
+## Features
 
-### Option 1: Deploy from GitHub (Recommended)
+- Modern web interface for AI object detection
+- Real-time connection to Railway backend
+- Mobile-responsive design
+- Drag-and-drop image upload
+- Object detection, similarity search, and tracking features
 
-1. **Connect to GitHub**:
-   - Go to [Netlify](https://netlify.com)
-   - Click "New site from Git"
-   - Connect your GitHub account
-   - Select your repository: `starnetxx/object-centric-ai-demo`
+## Backend
 
-2. **Configure Build Settings**:
-   - **Base directory**: `frontend`
-   - **Build command**: `echo 'No build step required'`
-   - **Publish directory**: `frontend`
+The backend API is hosted on Railway at: `https://web-production-e7ea7.up.railway.app/`
 
-3. **Deploy**:
-   - Click "Deploy site"
-   - Netlify will automatically deploy your frontend
+## Deployment
 
-### Option 2: Manual Deploy
+This frontend is automatically deployed to Netlify and connects to the Railway backend.
 
-1. **Build the frontend**:
-   ```bash
-   cd frontend
-   # No build step required - it's static HTML
-   ```
+## Local Development
 
-2. **Deploy to Netlify**:
-   - Drag and drop the `frontend` folder to Netlify
-   - Or use Netlify CLI: `netlify deploy --dir=frontend`
+1. Open `index.html` in a web browser
+2. The frontend will automatically connect to the Railway backend
 
-## 🔧 Configuration
+## Configuration
 
-The frontend automatically detects the environment:
-- **Local**: Uses `http://localhost:8000`
-- **Netlify**: Uses your Railway backend URL
-- **Production**: Uses your Railway backend URL
-
-## 📁 Files
-
-- `index.html` - Main application
-- `config.js` - Environment configuration
-- `CORE 01.png` - Logo
-- `favicon.png` - Favicon
-- `_redirects` - Netlify redirects
-- `netlify.toml` - Netlify configuration
-
-## 🌐 Live URLs
-
-- **Frontend (Netlify)**: Your Netlify URL
-- **Backend (Railway)**: `https://web-production-e7ea7.up.railway.app`
-
-## 🔄 Auto-Deploy
-
-Once connected to GitHub, Netlify will automatically redeploy when you push changes to the `main` branch.
+The `config.js` file handles environment detection:
+- Local development: Uses `http://localhost:8000`
+- Production: Uses `https://web-production-e7ea7.up.railway.app/`
