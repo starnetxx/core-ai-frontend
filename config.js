@@ -1,30 +1,23 @@
-// Configuration for different environments
+// Simple configuration for localhost vs production
 const config = {
     // For local development
     local: {
         apiUrl: 'http://localhost:8000'
     },
-    // For production (Railway deployment)
+    // For production (any .com domain, Netlify, etc.)
     production: {
-        apiUrl: 'https://web-production-e7ea7.up.railway.app'  // Your actual Railway URL
-    },
-    // For Netlify deployment
-    netlify: {
-        apiUrl: 'https://web-production-e7ea7.up.railway.app'  // Your actual Railway URL
+        apiUrl: 'https://starnetwork-coremodel.hf.space'  // Hugging Face Spaces
     }
 };
 
-// Auto-detect environment
+// Simple environment detection
 const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-const isNetlify = window.location.hostname.includes('netlify.app') || window.location.hostname.includes('netlify.com');
 
 let currentConfig;
 if (isLocal) {
     currentConfig = config.local;
-} else if (isNetlify) {
-    currentConfig = config.netlify;
 } else {
-    currentConfig = config.production;
+    currentConfig = config.production;  // Everything else uses Hugging Face Spaces
 }
 
 // Export for use in index.html
