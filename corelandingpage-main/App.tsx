@@ -53,7 +53,7 @@ const App: React.FC = () => {
   }
 
   if (view === 'docs') {
-    return <DocsPage onBack={navigateToLanding} />;
+    return <DocsPage onBack={navigateToLanding} onTryDemo={navigateToAuth} />;
   }
 
   return (

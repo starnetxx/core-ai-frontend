@@ -3,9 +3,10 @@ import React from 'react';
 
 interface DocsPageProps {
   onBack: () => void;
+  onTryDemo: () => void;
 }
 
-export const DocsPage: React.FC<DocsPageProps> = ({ onBack }) => {
+export const DocsPage: React.FC<DocsPageProps> = ({ onBack, onTryDemo }) => {
   const blackLogo = "https://i.ibb.co/0V8CCZQn/Whats-App-Image-2026-01-28-at-12-55-18-AM-removebg.png";
 
   return (
@@ -26,7 +27,7 @@ export const DocsPage: React.FC<DocsPageProps> = ({ onBack }) => {
             <img src={blackLogo} alt="CORE Logo" className="h-6 md:h-7 w-auto object-contain" />
           </div>
           <button 
-            onClick={onBack}
+            onClick={onTryDemo}
             className="text-[10px] font-bold uppercase tracking-widest text-[#34A853] hover:underline"
           >
             Try Demo
