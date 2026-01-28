@@ -1,3 +1,8 @@
 # Netlify redirects file
-# This ensures all routes are handled by index.html for SPA behavior
-/*    /index.html   200
+
+# Demo routes - serve demo files
+/demo              /demo/index.html    200
+/demo/*            /demo/:splat        200
+
+# Landing page SPA - all other routes go to landing page
+/*                 /index.html         200

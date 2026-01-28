@@ -1,24 +1,26 @@
 [build]
-  publish = "."
-  command = "echo 'Static HTML site - no build required'"
+  publish = "corelandingpage-main/dist"
+  command = "cd corelandingpage-main && npm install && npm run build"
 
 [build.environment]
   NODE_VERSION = "18"
 
-# Disable Python detection
-[build.processing]
-  skip_processing = false
+# Redirect /demo to demo folder
+[[redirects]]
+  from = "/demo"
+  to = "/demo/index.html"
+  status = 200
 
-[build.processing.css]
-  bundle = false
-  minify = false
+[[redirects]]
+  from = "/demo/*"
+  to = "/demo/:splat"
+  status = 200
 
-[build.processing.js]
-  bundle = false
-  minify = false
-
-[build.processing.html]
-  pretty_urls = true
+# SPA fallback for landing page
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
 
 [[headers]]
   for = "/*"
