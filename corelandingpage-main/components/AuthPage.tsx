@@ -34,10 +34,21 @@ export const AuthPage: React.FC<AuthPageProps> = ({ onBack }) => {
           password,
         });
 
-        if (error) throw error;
+        if (error) {
+          // Check for specific error types
+          if (error.message.includes('Email not confirmed')) {
+            throw new Error('Please verify your email before signing in. Check your inbox for the verification link.');
+          }
+          throw error;
+        }
 
         if (data.user) {
           console.log('User signed in:', data.user);
+          
+          // Check if email is verified
+          if (!data.user.email_confirmed_at) {
+            throw new Error('Please verify your email before signing in. Check your inbox for the verification link.');
+          }
           
           // Check if user is admin
           const { data: profile, error: profileError } = await supabase
@@ -50,6 +61,16 @@ export const AuthPage: React.FC<AuthPageProps> = ({ onBack }) => {
 
           if (profileError) {
             console.error('Profile error:', profileError);
+            // If profile doesn't exist, create it
+            if (profileError.code === 'PGRST116') {
+              console.log('Creating profile...');
+              await supabase.from('profiles').insert({
+                id: data.user.id,
+                email: data.user.email,
+                full_name: data.user.user_metadata?.full_name || null,
+                is_admin: false,
+              });
+            }
           }
 
           if (profile?.is_admin) {
@@ -59,10 +80,14 @@ export const AuthPage: React.FC<AuthPageProps> = ({ onBack }) => {
           } else {
             // Track demo usage
             console.log('Tracking demo usage');
-            await supabase.from('demo_usage').insert({
+            const { error: usageError } = await supabase.from('demo_usage').insert({
               user_id: data.user.id,
               session_start: new Date().toISOString(),
             });
+
+            if (usageError) {
+              console.error('Usage tracking error:', usageError);
+            }
 
             // Redirect to demo
             console.log('Redirecting to demo');
