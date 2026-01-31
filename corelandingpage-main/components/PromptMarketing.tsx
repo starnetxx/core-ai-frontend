@@ -23,6 +23,9 @@ export const PromptMarketing: React.FC = () => {
               We provide a prompt that runs directly on your vision or VLM pipeline. 
               The system identifies its own limitations — and explains how CORE addresses them.
             </p>
+            <p className="text-slate-900 text-base font-bold mt-4">
+              Use the prompt below on your vision model to find out.
+            </p>
           </div>
         </div>
 
