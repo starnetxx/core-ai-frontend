@@ -12,7 +12,7 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CORE Demo - AI Object Memory</title>
+    <title>CORE Demo</title>
     <link rel="icon" type="image/png" href="favicon.png">
     
     <style>
@@ -22,185 +22,25 @@
             box-sizing: border-box;
         }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            color: white;
-        }
-
-        .header {
-            padding: 20px;
-            text-align: center;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .header h1 {
-            font-size: 2em;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        .header img {
-            height: 40px;
-            width: auto;
-        }
-
-        .header p {
-            font-size: 1em;
-            opacity: 0.8;
-            margin-bottom: 15px;
-        }
-
-        .back-button {
-            display: inline-block;
-            padding: 10px 20px;
-            background: #34A853;
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            margin-top: 10px;
-        }
-
-        .back-button:hover {
-            background: #1E8E3E;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(52, 168, 83, 0.3);
-        }
-
-        .demo-container {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .iframe-wrapper {
+        html, body {
             width: 100%;
-            max-width: 1200px;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            height: 100%;
             overflow: hidden;
         }
 
         iframe {
-            width: 100%;
-            height: 80vh;
-            min-height: 600px;
+            width: 100vw;
+            height: 100vh;
             border: none;
             display: block;
-        }
-
-        .loading {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            z-index: 1;
-        }
-
-        .spinner {
-            border: 4px solid rgba(255, 255, 255, 0.1);
-            border-top: 4px solid #34A853;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 20px;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .info-banner {
-            background: rgba(52, 168, 83, 0.1);
-            border: 1px solid rgba(52, 168, 83, 0.3);
-            border-radius: 8px;
-            padding: 15px;
-            margin: 20px;
-            text-align: center;
-        }
-
-        .info-banner p {
-            margin: 5px 0;
-            font-size: 0.9em;
-        }
-
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 1.5em;
-                flex-direction: column;
-            }
-
-            .header img {
-                height: 30px;
-            }
-
-            iframe {
-                height: 70vh;
-                min-height: 500px;
-            }
-
-            .demo-container {
-                padding: 10px;
-            }
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>
-            <img src="CORE 01.png" alt="CORE Logo">
-            CORE Interactive Demo
-        </h1>
-        <p>Experience AI object memory and persistent object tracking in action</p>
-        <a href="/" class="back-button">← Back to Landing Page</a>
-    </div>
-
-    <div class="info-banner">
-        <p><strong>🚀 Live Demo:</strong> This is the full CORE interface running on Hugging Face Spaces</p>
-        <p>Upload images, detect objects, track them across frames, and explore the object memory system</p>
-    </div>
-
-    <div class="demo-container">
-        <div class="iframe-wrapper">
-            <div class="loading" id="loading">
-                <div class="spinner"></div>
-                <p>Loading CORE Demo...</p>
-            </div>
-            <iframe 
-                src="https://starnetwork-coremodel.hf.space" 
-                title="CORE Demo Interface"
-                allow="accelerometer; camera; microphone"
-                onload="document.getElementById('loading').style.display='none'"
-            ></iframe>
-        </div>
-    </div>
-
-    <script>
-        // Hide loading spinner after iframe loads
-        window.addEventListener('load', function() {
-            setTimeout(function() {
-                const loading = document.getElementById('loading');
-                if (loading) {
-                    loading.style.display = 'none';
-                }
-            }, 2000);
-        });
-    </script>
+    <iframe 
+        src="https://starnetwork-coremodel.hf.space" 
+        title="CORE Demo"
+        allow="accelerometer; camera; microphone"
+    ></iframe>
 </body>
 </html>
