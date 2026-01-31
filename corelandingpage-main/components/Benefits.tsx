@@ -7,7 +7,7 @@ const BenefitCard: React.FC<{ title: string; description: string; icon: React.Re
       {icon}
     </div>
     <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-[#1E8E3E] transition-colors">{title}</h3>
-    <p className="text-slate-500 leading-relaxed font-light">{description}</p>
+    <p className="text-slate-600 text-base leading-relaxed font-normal">{description}</p>
   </div>
 );
 

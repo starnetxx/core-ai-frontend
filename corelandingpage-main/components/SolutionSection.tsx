@@ -10,7 +10,7 @@ export const SolutionSection: React.FC = () => {
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-slate-900 mb-6 md:mb-8 leading-tight">
               Instead of treating objects as ephemeral predictions, CORE maintains stateful object representations that evolve as new images, prompts, and relationships are observed.
             </h2>
-            <p className="text-lg md:text-xl text-slate-500 font-light leading-relaxed mb-10 md:mb-12">
+            <p className="text-xl md:text-2xl text-slate-600 font-normal leading-relaxed mb-10 md:mb-12">
               So the world doesn’t reset every time the frame changes. 
               CORE sits between perception and action, maintaining 
               the identity of everything the system encounters.
@@ -24,8 +24,8 @@ export const SolutionSection: React.FC = () => {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="font-bold text-slate-900">Persistent Identity</h4>
-                  <p className="text-slate-500 text-sm font-normal">Objects maintain their unique ID even across occlusions or sensor drops.</p>
+                  <h4 className="font-bold text-slate-900 text-lg">Persistent Identity</h4>
+                  <p className="text-slate-600 text-base font-normal mt-1">Objects maintain their unique ID even across occlusions or sensor drops.</p>
                 </div>
               </div>
               <div className="bg-white p-5 md:p-6 rounded-2xl shadow-sm border border-slate-100 flex items-start gap-4 transition-all hover:shadow-md hover:border-[#34A853]/20">
@@ -35,8 +35,8 @@ export const SolutionSection: React.FC = () => {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="font-bold text-slate-900">Compositional Awareness</h4>
-                  <p className="text-slate-500 text-sm font-normal">The engine understands that a "coffee cup" is on a "book," creating a stable scene graph.</p>
+                  <h4 className="font-bold text-slate-900 text-lg">Compositional Awareness</h4>
+                  <p className="text-slate-600 text-base font-normal mt-1">The engine understands that a "coffee cup" is on a "book," creating a stable scene graph.</p>
                 </div>
               </div>
             </div>

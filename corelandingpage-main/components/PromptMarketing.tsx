@@ -19,7 +19,7 @@ export const PromptMarketing: React.FC = () => {
             <p className="text-lg md:text-xl text-slate-600 font-medium">
               Prompt Marketing lets your own AI system articulate why it needs a world model.
             </p>
-            <p className="text-slate-500 leading-relaxed font-light">
+            <p className="text-slate-600 text-base leading-relaxed font-normal">
               We provide a prompt that runs directly on your vision or VLM pipeline. 
               The system identifies its own limitations — and explains how CORE addresses them.
             </p>
