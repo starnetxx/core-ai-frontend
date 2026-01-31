@@ -27,7 +27,7 @@ export const Hero: React.FC<HeroProps> = ({ onTryDemo, onPricingClick }) => {
           Cognitive Object Representation Engine
         </div>
         
-        <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight text-white mb-6 md:mb-8 leading-[1.1] md:leading-[1] drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)] px-2 max-w-6xl mx-auto">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-white mb-6 md:mb-8 leading-[1.1] md:leading-[1] drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)] px-2 max-w-6xl mx-auto">
           AI that <br className="hidden md:block" />
           understands <br className="hidden md:block" />
           and remembers <br className="hidden md:block" />

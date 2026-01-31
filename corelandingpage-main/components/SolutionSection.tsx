@@ -8,9 +8,7 @@ export const SolutionSection: React.FC = () => {
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
           <div className="flex-1 max-w-xl w-full">
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-slate-900 mb-6 md:mb-8 leading-tight">
-              CORE changes that. <br className="hidden sm:block" />
-              It gives AI a sense <br className="hidden md:block" />
-              of continuity.
+              Instead of treating objects as ephemeral predictions, CORE maintains stateful object representations that evolve as new images, prompts, and relationships are observed.
             </h2>
             <p className="text-lg md:text-xl text-slate-500 font-light leading-relaxed mb-10 md:mb-12">
               So the world doesn’t reset every time the frame changes. 
