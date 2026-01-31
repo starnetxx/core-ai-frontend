@@ -7,7 +7,7 @@ export const SolutionSection: React.FC = () => {
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
           <div className="flex-1 max-w-xl w-full">
-            <h2 className="text-2xl md:text-4xl font-bold tracking-tight text-slate-900 mb-6 md:mb-8 leading-tight">
+            <h2 className="text-2xl md:text-4xl font-bold tracking-tight text-slate-900 mb-6 md:mb-8 leading-relaxed md:leading-relaxed">
               Instead of treating objects as ephemeral predictions, <br className="hidden md:block" />
               CORE maintains stateful object representations that evolve <br className="hidden md:block" />
               as new images, prompts, and relationships are observed.
