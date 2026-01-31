@@ -136,7 +136,7 @@ const App: React.FC = () => {
         <UseCases />
         <PromptMarketing />
         <About />
-        <CTA onTryDemo={navigateToAuth} />
+        <CTA onTryDemo={navigateToAuth} onContactClick={handleContactClick} />
       </main>
       <Footer onDocsClick={navigateToDocs} onContactClick={handleContactClick} />
     </div>

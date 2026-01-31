@@ -3,9 +3,10 @@ import React from 'react';
 
 interface CTAProps {
   onTryDemo: () => void;
+  onContactClick?: () => void;
 }
 
-export const CTA: React.FC<CTAProps> = ({ onTryDemo }) => {
+export const CTA: React.FC<CTAProps> = ({ onTryDemo, onContactClick }) => {
   return (
     <section className="py-32 md:py-48 px-6 bg-white overflow-hidden relative">
       <div className="max-w-4xl mx-auto text-center relative z-10">
@@ -23,7 +24,10 @@ export const CTA: React.FC<CTAProps> = ({ onTryDemo }) => {
           >
             Try Demo
           </button>
-          <button className="w-full sm:w-auto bg-white text-slate-600 border border-slate-200 px-10 py-5 rounded-full text-lg font-medium hover:bg-slate-50 transition-all active:scale-95">
+          <button 
+            onClick={onContactClick}
+            className="w-full sm:w-auto bg-white text-slate-600 border border-slate-200 px-10 py-5 rounded-full text-lg font-medium hover:bg-slate-50 transition-all active:scale-95"
+          >
             Contact us
           </button>
         </div>

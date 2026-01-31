@@ -37,24 +37,35 @@ export const AuthPage: React.FC<AuthPageProps> = ({ onBack }) => {
         if (error) throw error;
 
         if (data.user) {
+          console.log('User signed in:', data.user);
+          
           // Check if user is admin
-          const { data: profile } = await supabase
+          const { data: profile, error: profileError } = await supabase
             .from('profiles')
             .select('is_admin')
             .eq('id', data.user.id)
             .single();
 
+          console.log('Profile data:', profile);
+
+          if (profileError) {
+            console.error('Profile error:', profileError);
+          }
+
           if (profile?.is_admin) {
             // Redirect to admin dashboard
+            console.log('Redirecting to admin dashboard');
             window.location.href = '/#admin';
           } else {
             // Track demo usage
+            console.log('Tracking demo usage');
             await supabase.from('demo_usage').insert({
               user_id: data.user.id,
               session_start: new Date().toISOString(),
             });
 
             // Redirect to demo
+            console.log('Redirecting to demo');
             window.location.href = '/demo/';
           }
         }
