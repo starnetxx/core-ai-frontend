@@ -12,23 +12,56 @@ import { CTA } from './components/CTA';
 import { Footer } from './components/Footer';
 import { AuthPage } from './components/AuthPage';
 import { DocsPage } from './components/DocsPage';
+import { AdminDashboard } from './components/AdminDashboard';
+import { PricingModal } from './components/PricingModal';
+import { ContactModal } from './components/ContactModal';
+import { supabase } from './lib/supabase';
 
 const App: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
-  const [view, setView] = useState<'landing' | 'auth' | 'docs'>('landing');
+  const [view, setView] = useState<'landing' | 'auth' | 'docs' | 'admin'>('landing');
   const [showComingSoon, setShowComingSoon] = useState(false);
+  const [showPricingModal, setShowPricingModal] = useState(false);
+  const [showContactModal, setShowContactModal] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
     window.addEventListener('scroll', handleScroll);
+    
+    // Check for admin view in hash
+    if (window.location.hash === '#admin') {
+      checkAdminStatus();
+    }
+    
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const checkAdminStatus = async () => {
+    const { data: { user } } = await supabase.auth.getUser();
+    if (user) {
+      const { data: profile } = await supabase
+        .from('profiles')
+        .select('is_admin')
+        .eq('id', user.id)
+        .single();
+      
+      if (profile?.is_admin) {
+        setIsAdmin(true);
+        setView('admin');
+      } else {
+        setView('landing');
+      }
+    } else {
+      setView('auth');
+    }
+  };
+
   const navigateToAuth = () => {
-    // Navigate to demo page
-    window.location.href = '/demo/';
+    setView('auth');
+    window.scrollTo(0, 0);
   };
 
   const navigateToDocs = (e?: React.MouseEvent) => {
@@ -44,9 +77,23 @@ const App: React.FC = () => {
 
   const handlePricingClick = (e?: React.MouseEvent) => {
     if (e) e.preventDefault();
-    setShowComingSoon(true);
-    setTimeout(() => setShowComingSoon(false), 3000);
+    setShowPricingModal(true);
   };
+
+  const handleContactClick = () => {
+    setShowContactModal(true);
+  };
+
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
+    setIsAdmin(false);
+    setView('landing');
+    window.location.hash = '';
+  };
+
+  if (view === 'admin') {
+    return <AdminDashboard onLogout={handleLogout} />;
+  }
 
   if (view === 'auth') {
     return <AuthPage onBack={navigateToLanding} />;
@@ -58,6 +105,10 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen selection:bg-slate-200 selection:text-slate-900 relative">
+      {/* Modals */}
+      <PricingModal isOpen={showPricingModal} onClose={() => setShowPricingModal(false)} />
+      <ContactModal isOpen={showContactModal} onClose={() => setShowContactModal(false)} />
+
       {/* Coming Soon Toast */}
       <div 
         className={`fixed top-24 left-1/2 -translate-x-1/2 z-[100] transition-all duration-500 transform ${
@@ -73,6 +124,7 @@ const App: React.FC = () => {
       <Navbar 
         isScrolled={scrolled} 
         onTryDemo={navigateToAuth} 
+        onSignIn={navigateToAuth}
         onPricingClick={handlePricingClick} 
         onDocsClick={navigateToDocs}
       />
@@ -86,7 +138,7 @@ const App: React.FC = () => {
         <About />
         <CTA onTryDemo={navigateToAuth} />
       </main>
-      <Footer onDocsClick={navigateToDocs} />
+      <Footer onDocsClick={navigateToDocs} onContactClick={handleContactClick} />
     </div>
   );
 };

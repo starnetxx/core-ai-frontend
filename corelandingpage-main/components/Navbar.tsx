@@ -6,9 +6,10 @@ interface NavbarProps {
   onTryDemo: () => void;
   onPricingClick: (e: React.MouseEvent) => void;
   onDocsClick: (e: React.MouseEvent) => void;
+  onSignIn?: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ isScrolled, onTryDemo, onPricingClick, onDocsClick }) => {
+export const Navbar: React.FC<NavbarProps> = ({ isScrolled, onTryDemo, onPricingClick, onDocsClick, onSignIn }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const toggleMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -45,6 +46,16 @@ export const Navbar: React.FC<NavbarProps> = ({ isScrolled, onTryDemo, onPricing
 
           <div className="flex items-center gap-3">
             <button 
+              onClick={onSignIn || onTryDemo}
+              className={`hidden md:block px-4 md:px-5 py-2 md:py-2.5 rounded-full text-[11px] md:text-sm font-bold transition-all ${
+                isScrolled 
+                  ? 'text-slate-700 hover:text-[#34A853] hover:bg-slate-100' 
+                  : 'text-white/90 hover:text-white hover:bg-white/10'
+              }`}
+            >
+              Sign In
+            </button>
+            <button 
               onClick={onTryDemo}
               className="bg-[#34A853] text-white px-4 md:px-6 py-2 md:py-2.5 rounded-full text-[11px] md:text-sm font-bold hover:bg-[#1E8E3E] transition-all active:scale-95 shadow-lg shadow-[#34A853]/20"
             >
@@ -78,6 +89,12 @@ export const Navbar: React.FC<NavbarProps> = ({ isScrolled, onTryDemo, onPricing
           <a href="#benefits" onClick={(e) => { toggleMenu(); onPricingClick(e); }} className="hover:text-[#34A853] transition-colors">Pricing</a>
           <a href="#use-cases" onClick={toggleMenu} className="hover:text-[#34A853] transition-colors">Use Cases</a>
           <a href="#docs" onClick={(e) => { toggleMenu(); onDocsClick(e); }} className="hover:text-[#34A853] transition-colors">Docs</a>
+          <button 
+            onClick={() => { toggleMenu(); (onSignIn || onTryDemo)(); }}
+            className="text-white/80 hover:text-[#34A853] transition-colors"
+          >
+            Sign In
+          </button>
           <button 
             onClick={() => { toggleMenu(); onTryDemo(); }}
             className="mt-4 bg-[#34A853] text-white px-10 py-4 rounded-full text-lg shadow-2xl shadow-[#34A853]/40"

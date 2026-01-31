@@ -3,9 +3,10 @@ import React from 'react';
 
 interface FooterProps {
   onDocsClick?: (e: React.MouseEvent) => void;
+  onContactClick?: () => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onDocsClick }) => {
+export const Footer: React.FC<FooterProps> = ({ onDocsClick, onContactClick }) => {
   return (
     <footer className="py-12 md:py-20 px-4 sm:px-6 border-t border-slate-100 bg-white">
       <div className="max-w-7xl mx-auto">
@@ -46,6 +47,7 @@ export const Footer: React.FC<FooterProps> = ({ onDocsClick }) => {
               <p className="font-semibold text-slate-900">Contact</p>
               <ul className="space-y-2 text-slate-500">
                 <li><a href="#" onClick={onDocsClick} className="hover:text-[#34A853] transition-colors">Docs</a></li>
+                <li><button onClick={onContactClick} className="hover:text-[#34A853] transition-colors">Contact Us</button></li>
                 <li><a href="#" className="hover:text-[#34A853] transition-colors">Twitter</a></li>
                 <li><a href="#" className="hover:text-[#34A853] transition-colors">LinkedIn</a></li>
               </ul>

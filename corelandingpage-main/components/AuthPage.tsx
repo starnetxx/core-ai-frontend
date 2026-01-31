@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import { supabase } from '../lib/supabase';
 
 interface AuthPageProps {
   onBack: () => void;
@@ -7,9 +8,84 @@ interface AuthPageProps {
 
 export const AuthPage: React.FC<AuthPageProps> = ({ onBack }) => {
   const [isLogin, setIsLogin] = useState(true);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState<string | null>(null);
+  
+  // Form state
+  const [fullName, setFullName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const whiteLogo = "https://i.ibb.co/xqrNnFJj/CORE-01.png";
   const blackLogo = "https://i.ibb.co/0V8CCZQn/Whats-App-Image-2026-01-28-at-12-55-18-AM-removebg.png";
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setError(null);
+    setSuccess(null);
+
+    try {
+      if (isLogin) {
+        // Sign in
+        const { data, error } = await supabase.auth.signInWithPassword({
+          email,
+          password,
+        });
+
+        if (error) throw error;
+
+        if (data.user) {
+          // Check if user is admin
+          const { data: profile } = await supabase
+            .from('profiles')
+            .select('is_admin')
+            .eq('id', data.user.id)
+            .single();
+
+          if (profile?.is_admin) {
+            // Redirect to admin dashboard
+            window.location.href = '/#admin';
+          } else {
+            // Track demo usage
+            await supabase.from('demo_usage').insert({
+              user_id: data.user.id,
+              session_start: new Date().toISOString(),
+            });
+
+            // Redirect to demo
+            window.location.href = '/demo/';
+          }
+        }
+      } else {
+        // Sign up
+        const { data, error } = await supabase.auth.signUp({
+          email,
+          password,
+          options: {
+            data: {
+              full_name: fullName,
+            },
+          },
+        });
+
+        if (error) throw error;
+
+        if (data.user) {
+          setSuccess('Account created! Please check your email to verify your account.');
+          // Clear form
+          setFullName('');
+          setEmail('');
+          setPassword('');
+        }
+      }
+    } catch (err: any) {
+      setError(err.message || 'An error occurred');
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col md:flex-row">
@@ -100,13 +176,27 @@ export const AuthPage: React.FC<AuthPageProps> = ({ onBack }) => {
             </p>
           </div>
 
-          <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
+          <form className="space-y-5" onSubmit={handleSubmit}>
+            {error && (
+              <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-2xl text-sm">
+                {error}
+              </div>
+            )}
+            {success && (
+              <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-2xl text-sm">
+                {success}
+              </div>
+            )}
+            
             {!isLogin && (
               <div className="space-y-1.5">
                 <label className="text-xs font-bold text-slate-400 uppercase tracking-widest ml-1">Full Name</label>
                 <input 
                   type="text" 
                   placeholder="John Doe"
+                  value={fullName}
+                  onChange={(e) => setFullName(e.target.value)}
+                  required={!isLogin}
                   className="w-full bg-slate-50 border border-slate-200 rounded-2xl px-5 py-4 text-slate-900 placeholder:text-slate-300 focus:outline-none focus:ring-4 focus:ring-[#34A853]/10 focus:border-[#34A853] transition-all"
                 />
               </div>
@@ -116,6 +206,9 @@ export const AuthPage: React.FC<AuthPageProps> = ({ onBack }) => {
               <input 
                 type="email" 
                 placeholder="john@example.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
                 className="w-full bg-slate-50 border border-slate-200 rounded-2xl px-5 py-4 text-slate-900 placeholder:text-slate-300 focus:outline-none focus:ring-4 focus:ring-[#34A853]/10 focus:border-[#34A853] transition-all"
               />
             </div>
@@ -123,18 +216,26 @@ export const AuthPage: React.FC<AuthPageProps> = ({ onBack }) => {
               <div className="flex justify-between items-center px-1">
                 <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">Password</label>
                 {isLogin && (
-                  <button className="text-[10px] font-bold text-[#34A853] uppercase hover:underline">Forgot?</button>
+                  <button type="button" className="text-[10px] font-bold text-[#34A853] uppercase hover:underline">Forgot?</button>
                 )}
               </div>
               <input 
                 type="password" 
                 placeholder="••••••••"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                minLength={6}
                 className="w-full bg-slate-50 border border-slate-200 rounded-2xl px-5 py-4 text-slate-900 placeholder:text-slate-300 focus:outline-none focus:ring-4 focus:ring-[#34A853]/10 focus:border-[#34A853] transition-all"
               />
             </div>
 
-            <button className="w-full bg-[#34A853] text-white py-4 rounded-2xl font-bold text-lg hover:bg-[#1E8E3E] transition-all shadow-xl shadow-[#34A853]/20 active:scale-[0.98] mt-4">
-              {isLogin ? 'Sign In' : 'Join Waitlist'}
+            <button 
+              type="submit"
+              disabled={loading}
+              className="w-full bg-[#34A853] text-white py-4 rounded-2xl font-bold text-lg hover:bg-[#1E8E3E] transition-all shadow-xl shadow-[#34A853]/20 active:scale-[0.98] mt-4 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {loading ? 'Loading...' : (isLogin ? 'Sign In' : 'Join Waitlist')}
             </button>
           </form>
 
