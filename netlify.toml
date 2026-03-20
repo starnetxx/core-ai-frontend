@@ -12,6 +12,11 @@
   status = 200
 
 [[redirects]]
+  from = "/signin"
+  to = "/demo/index.html"
+  status = 200
+
+[[redirects]]
   from = "/demo/*"
   to = "/demo/:splat"
   status = 200

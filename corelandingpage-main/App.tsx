@@ -63,6 +63,10 @@ const App: React.FC = () => {
     window.location.href = '/demo/';
   };
 
+  const navigateToSignIn = () => {
+    window.location.href = '/signin';
+  };
+
   const navigateToDocs = (e?: React.MouseEvent) => {
     if (e) e.preventDefault();
     setView('docs');
@@ -123,7 +127,7 @@ const App: React.FC = () => {
       <Navbar 
         isScrolled={scrolled} 
         onTryDemo={navigateToAuth} 
-        onSignIn={navigateToAuth}
+        onSignIn={navigateToSignIn}
         onPricingClick={handlePricingClick} 
         onDocsClick={navigateToDocs}
       />

@@ -2,6 +2,7 @@
 
 # Demo routes - serve demo files
 /demo              /demo/index.html    200
+/signin            /demo/index.html    200
 /demo/*            /demo/:splat        200
 
 # Landing page SPA - all other routes go to landing page
