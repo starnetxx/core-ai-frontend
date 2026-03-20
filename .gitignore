@@ -1,0 +1,29 @@
+# Environment variables
+.env
+.env.local
+.env*.local
+
+# Kiro settings (may contain sensitive MCP tokens)
+.kiro/settings/mcp.json
+
+# Node modules
+node_modules/
+
+# Build outputs
+dist/
+build/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Supabase local
+.supabase/
