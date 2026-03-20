@@ -60,7 +60,7 @@ const App: React.FC = () => {
   };
 
   const navigateToAuth = () => {
-    window.location.href = '/demo/';
+    window.location.href = '/signin';
   };
 
   const navigateToSignIn = () => {
