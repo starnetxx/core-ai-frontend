@@ -5,6 +5,7 @@ import { Hero } from './components/Hero';
 import { ProblemSolutionSection } from './components/ProblemSolutionSection';
 import { Benefits } from './components/Benefits';
 import { UseCases } from './components/UseCases';
+import { PromptMarketing } from './components/PromptMarketing';
 import { HowItWorks } from './components/HowItWorks';
 import { PricingSection } from './components/PricingSection';
 import { About } from './components/About';
@@ -128,6 +129,7 @@ const App: React.FC = () => {
         <HowItWorks />
         <Benefits />
         <UseCases />
+        <PromptMarketing />
         <PricingSection onGetStarted={navigateToAuth} />
         <About />
         <CTA onTryDemo={navigateToAuth} onContactClick={handleContactClick} />
