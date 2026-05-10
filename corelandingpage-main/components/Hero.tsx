@@ -34,17 +34,23 @@ export const Hero: React.FC<HeroProps> = ({ onTryDemo, onPricingClick }) => {
           the world.
         </h1>
         
-        <p className="text-base sm:text-lg md:text-2xl text-white/90 mb-8 md:mb-12 max-w-2xl mx-auto font-light leading-relaxed drop-shadow-lg px-4">
-          CORE helps AI keep track of what it has seen before. <br className="hidden sm:block" />
-          Giving machines the continuity they need to understand reality.
+        <p className="text-base sm:text-lg md:text-xl text-white/90 mb-4 max-w-3xl mx-auto font-light leading-relaxed drop-shadow-lg px-4">
+          CORE is the open neurosymbolic middleware that gives any VLM persistent object identity, compositional scene graphs, and long-horizon memory, without retraining or replacing your foundation model.
         </p>
+        <p className="text-sm sm:text-base md:text-lg text-white/80 mb-10 max-w-3xl mx-auto font-light leading-relaxed drop-shadow-lg px-4">
+          CORE sits between perception and action so robots, AR glasses, and surveillance systems never lose track of objects again, even under 90% occlusion.
+        </p>
+
+        <div className="mb-4 text-[#34A853] font-bold tracking-widest uppercase text-xs md:text-sm drop-shadow-md">
+          Object Permanence for the physical world
+        </div>
         
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5 relative z-10 px-4">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5 relative z-10 px-4 mb-6">
           <button 
             onClick={onTryDemo}
             className="w-full sm:w-auto bg-[#34A853] text-white px-8 md:px-10 py-4 md:py-5 rounded-full text-base md:text-lg font-bold hover:bg-[#1E8E3E] hover:scale-105 transition-all shadow-2xl shadow-[#34A853]/40 active:scale-95"
           >
-            Try Demo
+            Try a demo
           </button>
           <button 
             onClick={onPricingClick}
@@ -52,6 +58,10 @@ export const Hero: React.FC<HeroProps> = ({ onTryDemo, onPricingClick }) => {
           >
             Pricing
           </button>
+        </div>
+
+        <div className="text-white/60 text-xs sm:text-sm max-w-2xl mx-auto px-4 font-medium tracking-wide">
+          Already integrated with ROS 2, PyTorch, and major VLMs. Works today with Gemini, Claude, GPT-5, Llama-4, Qwen-VL.
         </div>
       </div>
     </section>

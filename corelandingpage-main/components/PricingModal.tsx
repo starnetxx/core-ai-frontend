@@ -38,6 +38,13 @@ export const PricingModal: React.FC<PricingModalProps> = ({ isOpen, onClose }) =
       if (error) throw error;
 
       setSuccess(true);
+      
+      // Track Google Ads Conversion for Pricing Inquiry (Purchase)
+      if (typeof window !== 'undefined' && (window as any).gtag) {
+        (window as any).gtag('event', 'conversion', {
+          'send_to': 'AW-18089185294'
+        });
+      }
       setTimeout(() => {
         onClose();
         setSuccess(false);

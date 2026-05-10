@@ -2,11 +2,10 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
-import { ProblemSection } from './components/ProblemSection';
-import { SolutionSection } from './components/SolutionSection';
+import { ProblemSolutionSection } from './components/ProblemSolutionSection';
 import { Benefits } from './components/Benefits';
 import { UseCases } from './components/UseCases';
-import { PromptMarketing } from './components/PromptMarketing';
+import { HowItWorks } from './components/HowItWorks';
 import { About } from './components/About';
 import { CTA } from './components/CTA';
 import { Footer } from './components/Footer';
@@ -20,7 +19,6 @@ import { supabase } from './lib/supabase';
 const App: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [view, setView] = useState<'landing' | 'auth' | 'docs' | 'admin'>('landing');
-  const [showComingSoon, setShowComingSoon] = useState(false);
   const [showPricingModal, setShowPricingModal] = useState(false);
   const [showContactModal, setShowContactModal] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
@@ -80,6 +78,13 @@ const App: React.FC = () => {
 
   const handlePricingClick = (e?: React.MouseEvent) => {
     if (e) e.preventDefault();
+    const pricingSection = document.getElementById('pricing');
+    if (pricingSection) {
+      pricingSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleGetStartedClick = () => {
     setShowPricingModal(true);
   };
 
@@ -112,18 +117,6 @@ const App: React.FC = () => {
       <PricingModal isOpen={showPricingModal} onClose={() => setShowPricingModal(false)} />
       <ContactModal isOpen={showContactModal} onClose={() => setShowContactModal(false)} />
 
-      {/* Coming Soon Toast */}
-      <div 
-        className={`fixed top-24 left-1/2 -translate-x-1/2 z-[100] transition-all duration-500 transform ${
-          showComingSoon ? 'translate-y-0 opacity-100' : '-translate-y-12 opacity-0 pointer-events-none'
-        }`}
-      >
-        <div className="bg-slate-900 text-white px-6 py-3 rounded-2xl shadow-2xl border border-white/10 flex items-center gap-3">
-          <div className="w-2 h-2 bg-[#34A853] rounded-full animate-pulse"></div>
-          <span className="text-sm font-bold uppercase tracking-widest">Pricing Coming Soon</span>
-        </div>
-      </div>
-
       <Navbar 
         isScrolled={scrolled} 
         onTryDemo={navigateToAuth} 
@@ -133,11 +126,11 @@ const App: React.FC = () => {
       />
       <main>
         <Hero onTryDemo={navigateToAuth} onPricingClick={handlePricingClick} />
-        <ProblemSection />
-        <SolutionSection />
+        <ProblemSolutionSection />
+        <HowItWorks />
         <Benefits />
         <UseCases />
-        <PromptMarketing />
+        <PricingSection onGetStarted={handleGetStartedClick} />
         <About />
         <CTA onTryDemo={navigateToAuth} onContactClick={handleContactClick} />
       </main>

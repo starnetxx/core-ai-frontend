@@ -1,18 +1,17 @@
-
 import React from 'react';
 
 export const UseCases: React.FC = () => {
   const cases = [
-    { title: "Robots that don’t lose context", desc: "Keep track of tools, obstacles, and people across complex environments." },
-    { title: "Smarter physical assistants", desc: "Understanding the state of the room so they can be truly helpful." },
-    { title: "Natural spatial experiences", desc: "Augmented reality that feels grounded and persistent over time." },
-    { title: "Human-like behavior", desc: "AI that interacts with the world with a sense of object permanence." }
+    { title: "Robotics and Warehouses", desc: "Tools, parts, and humans stay tracked across the entire shift." },
+    { title: "Surveillance and Smart Cities", desc: "One camera now “remembers everything”." },
+    { title: "Augmented Reality", desc: "Objects persist in the user’s view exactly as they do in reality." },
+    { title: "Agricultural Drones and Physical Assistants", desc: "Context never resets in dynamic outdoor environments." }
   ];
 
   return (
     <section id="use-cases" className="py-20 md:py-32 px-4 sm:px-6 bg-slate-50/50">
       <div className="max-w-3xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 md:mb-16 tracking-tight text-slate-900">Built for the next frontier.</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 md:mb-16 tracking-tight text-slate-900">Real-World Use Cases</h2>
         
         <div className="space-y-4">
           {cases.map((item, idx) => (
