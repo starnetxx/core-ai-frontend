@@ -6,6 +6,7 @@ import { ProblemSolutionSection } from './components/ProblemSolutionSection';
 import { Benefits } from './components/Benefits';
 import { UseCases } from './components/UseCases';
 import { HowItWorks } from './components/HowItWorks';
+import { PricingSection } from './components/PricingSection';
 import { About } from './components/About';
 import { CTA } from './components/CTA';
 import { Footer } from './components/Footer';
