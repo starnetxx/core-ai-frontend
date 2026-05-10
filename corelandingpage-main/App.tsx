@@ -85,9 +85,6 @@ const App: React.FC = () => {
     }
   };
 
-  const handleGetStartedClick = () => {
-    setShowPricingModal(true);
-  };
 
   const handleContactClick = () => {
     setShowContactModal(true);
@@ -131,7 +128,7 @@ const App: React.FC = () => {
         <HowItWorks />
         <Benefits />
         <UseCases />
-        <PricingSection onGetStarted={handleGetStartedClick} />
+        <PricingSection onGetStarted={navigateToAuth} />
         <About />
         <CTA onTryDemo={navigateToAuth} onContactClick={handleContactClick} />
       </main>

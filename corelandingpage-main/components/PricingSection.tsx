@@ -71,7 +71,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onGetStarted }) 
               </li>
             </ul>
             <button onClick={onGetStarted} className="w-full py-4 rounded-xl font-bold border-2 border-slate-200 text-slate-600 hover:border-slate-300 hover:bg-slate-50 transition-colors">
-              Contact Sales
+              Get Started
             </button>
           </div>
         </div>
