@@ -34,16 +34,9 @@ export const Hero: React.FC<HeroProps> = ({ onTryDemo, onPricingClick }) => {
           the world.
         </h1>
         
-        <p className="text-base sm:text-lg md:text-xl text-white/90 mb-4 max-w-3xl mx-auto font-light leading-relaxed drop-shadow-lg px-4">
-          CORE is the open neurosymbolic middleware that gives any VLM persistent object identity, compositional scene graphs, and long-horizon memory, without retraining or replacing your foundation model.
+        <p className="text-base sm:text-lg md:text-xl text-white/90 mb-10 max-w-3xl mx-auto font-light leading-relaxed drop-shadow-lg px-4">
+          CORE gives any VLM persistent object identity.
         </p>
-        <p className="text-sm sm:text-base md:text-lg text-white/80 mb-10 max-w-3xl mx-auto font-light leading-relaxed drop-shadow-lg px-4">
-          CORE sits between perception and action so robots, AR glasses, and surveillance systems never lose track of objects again, even under 90% occlusion.
-        </p>
-
-        <div className="mb-4 text-[#34A853] font-bold tracking-widest uppercase text-xs md:text-sm drop-shadow-md">
-          Object Permanence for the physical world
-        </div>
         
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5 relative z-10 px-4 mb-6">
           <button 
