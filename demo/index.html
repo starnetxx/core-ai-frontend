@@ -41,9 +41,17 @@
 </head>
 <body>
     <iframe 
-        src="https://core-console-eight.vercel.app/" 
+        id="demo-iframe"
         title="CORE Demo"
         allow="accelerometer; camera; microphone"
     ></iframe>
+    <script>
+        const iframe = document.getElementById('demo-iframe');
+        if (window.location.pathname.startsWith('/signin')) {
+            iframe.src = 'https://starnetwork-coreworldmodel.hf.space/';
+        } else {
+            iframe.src = 'https://core-console-eight.vercel.app/';
+        }
+    </script>
 </body>
 </html>
