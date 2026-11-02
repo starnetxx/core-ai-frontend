@@ -39,14 +39,6 @@ export const Navbar: React.FC<NavbarProps> = ({ isScrolled, onTryDemo, onPricing
                 className="h-6 md:h-7 w-auto object-contain transition-all duration-300"
               />
             </div>
-            <span className={`hidden lg:inline-flex items-center gap-1.5 text-[10px] font-mono font-semibold uppercase tracking-widest px-2.5 py-0.5 rounded-full border ${
-              isScrolled
-                ? 'bg-slate-100 text-slate-600 border-slate-200'
-                : 'bg-white/10 text-white/80 border-white/15'
-            }`}>
-              <span className="w-1.5 h-1.5 rounded-full bg-[#34A853] animate-pulse"></span>
-              v1.4 Engine
-            </span>
           </a>
           
           <div className={`hidden md:flex items-center gap-8 text-xs uppercase tracking-[0.16em] font-semibold transition-colors duration-300 ${
