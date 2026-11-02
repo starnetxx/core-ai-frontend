@@ -31,18 +31,18 @@ export const CTA: React.FC<CTAProps> = ({ onTryDemo, onContactClick }) => {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <button 
                 onClick={onTryDemo}
-                className="group w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-[#34A853] text-white px-9 py-4.5 rounded-full text-base md:text-lg font-semibold hover:bg-[#2d9248] transition-all shadow-[0_0_40px_rgba(52,168,83,0.4)] active:scale-95"
+                className="group w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-[#34A853] text-white px-9 py-4 rounded-full text-base md:text-lg font-semibold hover:bg-[#2d9248] transition-all shadow-[0_0_40px_rgba(52,168,83,0.4)] active:scale-95"
               >
-                <span>Try Interactive Demo</span>
+                <span>Try Demo</span>
                 <svg className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
               </button>
               <button 
                 onClick={onContactClick}
-                className="w-full sm:w-auto bg-white/[0.06] text-white border border-white/15 px-9 py-4.5 rounded-full text-base md:text-lg font-medium hover:bg-white/[0.12] hover:border-white/30 transition-all active:scale-95"
+                className="w-full sm:w-auto inline-flex items-center justify-center bg-white/[0.06] text-white border border-white/15 px-9 py-4 rounded-full text-base md:text-lg font-medium hover:bg-white/[0.12] hover:border-white/30 transition-all active:scale-95"
               >
-                Contact Engineering
+                Contact us
               </button>
             </div>
           </div>
