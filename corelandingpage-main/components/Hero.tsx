@@ -59,7 +59,7 @@ export const Hero: React.FC<HeroProps> = ({ onTryDemo, onPricingClick }) => {
         </p>
         
         {/* Primary & Secondary CTAs */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5 relative z-10 px-4 mb-14">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5 relative z-10 px-4">
           <button 
             onClick={onTryDemo}
             className="group w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-[#34A853] text-white px-8 md:px-10 py-4 rounded-full text-base md:text-lg font-semibold hover:bg-[#2d9248] transition-all shadow-[0_0_40px_rgba(52,168,83,0.4)] hover:shadow-[0_0_60px_rgba(52,168,83,0.6)] active:scale-95"
@@ -75,45 +75,6 @@ export const Hero: React.FC<HeroProps> = ({ onTryDemo, onPricingClick }) => {
           >
             Pricing
           </button>
-        </div>
-
-        {/* Live Telemetry HUD Strip (Tesla / DeepMind style) */}
-        <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 px-2 text-left">
-          <div className="bg-slate-900/70 backdrop-blur-xl border border-white/10 rounded-2xl p-4">
-            <div className="flex items-center justify-between mb-1.5">
-              <span className="text-[10px] font-mono uppercase tracking-widest text-slate-400">Object Identity</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-[#34A853]"></span>
-            </div>
-            <div className="font-mono text-sm sm:text-base font-semibold text-white">UUID-Persistent</div>
-            <div className="text-[11px] text-slate-400 mt-0.5">Zero-shot re-ID</div>
-          </div>
-
-          <div className="bg-slate-900/70 backdrop-blur-xl border border-white/10 rounded-2xl p-4">
-            <div className="flex items-center justify-between mb-1.5">
-              <span className="text-[10px] font-mono uppercase tracking-widest text-slate-400">Heat Capacity</span>
-              <span className="text-[10px] font-mono text-[#34A853]">85.4% STABLE</span>
-            </div>
-            <div className="font-mono text-sm sm:text-base font-semibold text-white">Self-Monitored</div>
-            <div className="text-[11px] text-slate-400 mt-0.5">Variance-aware confidence</div>
-          </div>
-
-          <div className="bg-slate-900/70 backdrop-blur-xl border border-white/10 rounded-2xl p-4">
-            <div className="flex items-center justify-between mb-1.5">
-              <span className="text-[10px] font-mono uppercase tracking-widest text-slate-400">Cascade Risk</span>
-              <span className="text-[10px] font-mono text-emerald-400">NOMINAL</span>
-            </div>
-            <div className="font-mono text-sm sm:text-base font-semibold text-white">Pre-Failure Alert</div>
-            <div className="text-[11px] text-slate-400 mt-0.5">Flags before occlusion loss</div>
-          </div>
-
-          <div className="bg-slate-900/70 backdrop-blur-xl border border-white/10 rounded-2xl p-4">
-            <div className="flex items-center justify-between mb-1.5">
-              <span className="text-[10px] font-mono uppercase tracking-widest text-slate-400">Modality Mirror</span>
-              <span className="text-[10px] font-mono text-sky-400">ACTIVE</span>
-            </div>
-            <div className="font-mono text-sm sm:text-base font-semibold text-white">Full Attribution</div>
-            <div className="text-[11px] text-slate-400 mt-0.5">Visual · Language · Graph</div>
-          </div>
         </div>
       </div>
 
