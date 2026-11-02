@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
@@ -7,6 +6,7 @@ import { Benefits } from './components/Benefits';
 import { UseCases } from './components/UseCases';
 import { PromptMarketing } from './components/PromptMarketing';
 import { HowItWorks } from './components/HowItWorks';
+import { SelfAwareReliability } from './components/SelfAwareReliability';
 import { PricingSection } from './components/PricingSection';
 import { About } from './components/About';
 import { CTA } from './components/CTA';
@@ -127,6 +127,7 @@ const App: React.FC = () => {
         <Hero onTryDemo={navigateToAuth} onPricingClick={handlePricingClick} />
         <ProblemSolutionSection />
         <HowItWorks />
+        <SelfAwareReliability />
         <Benefits />
         <UseCases />
         <PromptMarketing />

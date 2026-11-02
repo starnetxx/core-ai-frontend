@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 interface HeroProps {
@@ -27,15 +26,14 @@ export const Hero: React.FC<HeroProps> = ({ onTryDemo, onPricingClick }) => {
           Cognitive Object Representation Engine
         </div>
         
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-white mb-6 md:mb-8 leading-[1.1] md:leading-[1] drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)] px-2 max-w-6xl mx-auto">
-          AI that <br className="hidden md:block" />
-          understands <br className="hidden md:block" />
-          and remembers <br className="hidden md:block" />
-          the world.
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-white mb-6 md:mb-8 leading-[1.1] md:leading-[1.05] drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)] px-2 max-w-6xl mx-auto">
+          AI that understands, <br className="hidden md:block" />
+          remembers the world, <br className="hidden md:block" />
+          and knows when <span className="text-[#34A853]">it’s uncertain</span>.
         </h1>
         
         <p className="text-base sm:text-lg md:text-xl text-white/90 mb-10 max-w-3xl mx-auto font-light leading-relaxed drop-shadow-lg px-4">
-          CORE gives any VLM persistent object identity.
+          CORE gives vision systems persistent object identities, relational context, and self-aware reliability scoring. The system doesn’t just track objects; it monitors its own confidence and adapts when evidence degrades.
         </p>
         
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5 relative z-10 px-4 mb-6">

@@ -2,6 +2,10 @@ import React from 'react';
 
 export const UseCases: React.FC = () => {
   const cases = [
+    {
+      title: "Safety-Critical Autonomy",
+      desc: "Robots, drones, and autonomous vehicles need more than tracking, they need to know when tracking is unreliable. CORE's cascade risk and heat capacity metrics give execution controllers the evidence they need to make proceed/slow/halt decisions. When persistence degrades but hasn't failed yet, the system can trigger conservative behavior before a failure occurs."
+    },
     { title: "Robotics and Warehouses", desc: "Tools, parts, and humans stay tracked across the entire shift." },
     { title: "Surveillance and Smart Cities", desc: "One camera now “remembers everything”." },
     { title: "Augmented Reality", desc: "Objects persist in the user’s view exactly as they do in reality." },

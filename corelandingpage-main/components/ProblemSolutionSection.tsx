@@ -27,7 +27,7 @@ export const ProblemSolutionSection: React.FC = () => {
             <h3 className="text-2xl font-bold text-slate-900 mb-6">The Problem</h3>
             <p className="text-lg text-slate-600 leading-relaxed font-normal mb-6 flex-grow">
               Modern VLMs are powerful but stateless. They treat every frame as new. 
-              Objects disappear behind occlusions. Scene graphs collapse. Long-horizon tasks fail.
+              Objects disappear behind occlusions. Scene graphs collapse. Long-horizon tasks fail without warning.
             </p>
             <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100">
               <p className="text-slate-800 font-medium">
