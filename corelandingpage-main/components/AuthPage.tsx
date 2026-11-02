@@ -147,13 +147,17 @@ export const AuthPage: React.FC<AuthPageProps> = ({ onBack }) => {
             Back to Home
           </button>
           
-          <div className="mb-8 group">
+          <a 
+            href="/"
+            onClick={(e) => { e.preventDefault(); onBack(); }}
+            className="mb-8 inline-block group cursor-pointer"
+          >
             <img 
               src={whiteLogo} 
               alt="CORE Logo" 
-              className="h-10 w-auto object-contain"
+              className="h-10 w-auto object-contain group-hover:scale-105 transition-transform"
             />
-          </div>
+          </a>
           
           <h2 className="text-4xl font-bold tracking-tight mb-6">
             The next generation of <span className="text-[#34A853]">spatial intelligence</span>.
@@ -188,13 +192,17 @@ export const AuthPage: React.FC<AuthPageProps> = ({ onBack }) => {
         <div className="w-full max-w-sm">
           {/* Mobile Logo */}
           <div className="md:hidden flex flex-col items-center mb-12">
-            <div className="mb-4">
+            <a 
+              href="/"
+              onClick={(e) => { e.preventDefault(); onBack(); }}
+              className="mb-4 inline-block cursor-pointer"
+            >
               <img 
                 src={blackLogo} 
                 alt="CORE Logo" 
                 className="h-8 w-auto object-contain"
               />
-            </div>
+            </a>
             <button 
               onClick={onBack}
               className="text-xs text-slate-400 font-bold uppercase tracking-widest hover:text-[#34A853]"
