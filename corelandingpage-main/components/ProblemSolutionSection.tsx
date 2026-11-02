@@ -18,8 +18,7 @@ export const ProblemSolutionSection: React.FC = () => {
           <div className="bg-slate-50/90 backdrop-blur-sm p-8 sm:p-10 md:p-12 rounded-[2rem] border border-slate-200/80 flex flex-col justify-between relative overflow-hidden group hover:border-red-200 transition-all duration-300">
             <div>
               <div className="flex items-center justify-between mb-8">
-                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-semibold uppercase tracking-wider bg-red-500/10 text-red-600 border border-red-500/20">
-                  <span className="w-1.5 h-1.5 rounded-full bg-red-500"></span>
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono font-semibold uppercase tracking-wider bg-red-500/10 text-red-600 border border-red-500/20">
                   Stateless Vision
                 </span>
                 <div className="w-11 h-11 bg-red-50 text-red-500 rounded-2xl flex items-center justify-center border border-red-100">
@@ -66,8 +65,7 @@ export const ProblemSolutionSection: React.FC = () => {
 
             <div className="relative z-10">
               <div className="flex items-center justify-between mb-8">
-                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-semibold uppercase tracking-wider bg-[#34A853]/15 text-[#34A853] border border-[#34A853]/30">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#34A853] animate-pulse"></span>
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono font-semibold uppercase tracking-wider bg-[#34A853]/15 text-[#34A853] border border-[#34A853]/30">
                   Stateful World Model
                 </span>
                 <div className="w-11 h-11 bg-[#34A853]/15 text-[#34A853] rounded-2xl flex items-center justify-center border border-[#34A853]/30">

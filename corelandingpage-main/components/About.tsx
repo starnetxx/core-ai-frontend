@@ -6,8 +6,7 @@ export const About: React.FC = () => {
       <div className="max-w-5xl mx-auto">
         <div className="bg-white rounded-[2rem] p-8 md:p-12 border border-slate-200/80 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
           <div className="max-w-2xl">
-            <div className="mb-4 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200">
-              <div className="w-1.5 h-1.5 bg-[#34A853] rounded-full animate-pulse"></div>
+            <div className="mb-4 inline-flex items-center px-3 py-1 rounded-full bg-slate-100 border border-slate-200">
               <span className="text-[10px] font-mono font-bold uppercase tracking-[0.2em] text-slate-600">
                 Technical Specification
               </span>

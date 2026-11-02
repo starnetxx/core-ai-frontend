@@ -86,7 +86,6 @@ export const HowItWorks: React.FC = () => {
 
               <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
                 <span className="text-xs font-mono font-medium text-slate-500">{step.metrics}</span>
-                <span className="w-2 h-2 rounded-full bg-slate-200 group-hover:bg-[#34A853] transition-colors"></span>
               </div>
             </div>
           ))}

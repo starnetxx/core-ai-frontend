@@ -14,8 +14,7 @@ export const CTA: React.FC<CTAProps> = ({ onTryDemo, onContactClick }) => {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-[#34A853]/20 rounded-full blur-[130px] pointer-events-none"></div>
 
           <div className="max-w-3xl mx-auto relative z-10">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 mb-6 text-[11px] font-mono font-semibold uppercase tracking-[0.2em] bg-white/[0.06] text-emerald-300 rounded-full border border-white/10">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#34A853] animate-pulse"></span>
+            <div className="inline-flex items-center px-3.5 py-1.5 mb-6 text-[11px] font-mono font-semibold uppercase tracking-[0.2em] bg-white/[0.06] text-emerald-300 rounded-full border border-white/10">
               Ready for Deployment
             </div>
             <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white mb-6 leading-[1.08]">

@@ -34,12 +34,8 @@ export const Hero: React.FC<HeroProps> = ({ onTryDemo, onPricingClick }) => {
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto w-full text-center animate-fade-in-up relative z-10 my-auto py-12 md:py-16">
-        {/* Top Telemetry Pill */}
-        <div className="inline-flex items-center gap-3 px-4 py-2 mb-8 text-[10px] md:text-xs font-mono font-medium tracking-[0.22em] uppercase bg-white/[0.06] backdrop-blur-xl text-white/90 rounded-full border border-white/15 shadow-2xl">
-          <span className="flex h-2 w-2 relative">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#34A853] opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-[#34A853]"></span>
-          </span>
+        {/* Top Pill */}
+        <div className="inline-flex items-center px-4 py-2 mb-8 text-[10px] md:text-xs font-mono font-medium tracking-[0.22em] uppercase bg-white/[0.06] backdrop-blur-xl text-white/90 rounded-full border border-white/15 shadow-2xl">
           <span>Cognitive Object Representation Engine</span>
         </div>
         

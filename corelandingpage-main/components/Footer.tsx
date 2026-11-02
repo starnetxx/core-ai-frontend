@@ -18,13 +18,9 @@ export const Footer: React.FC<FooterProps> = ({ onDocsClick, onContactClick }) =
                 className="h-7 md:h-8 w-auto object-contain"
               />
             </div>
-            <p className="text-sm text-slate-500 leading-relaxed font-normal mb-6">
+            <p className="text-sm text-slate-500 leading-relaxed font-normal">
               Cognitive Objects Representation Engine. Advancing spatial intelligence through persistent object identity, relational context, and self-aware reliability.
             </p>
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-50 border border-slate-200/80 text-xs font-mono text-slate-600">
-              <span className="w-2 h-2 rounded-full bg-[#34A853]"></span>
-              All Systems Operational
-            </div>
           </div>
           
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-10 md:gap-16 text-sm w-full md:w-auto">

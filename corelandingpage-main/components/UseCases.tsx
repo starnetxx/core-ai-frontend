@@ -55,8 +55,7 @@ export const UseCases: React.FC = () => {
           
           <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-8">
             <div className="max-w-3xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-mono font-semibold uppercase tracking-widest bg-[#34A853]/20 text-[#34A853] border border-[#34A853]/30 mb-5">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#34A853] animate-pulse"></span>
+              <div className="inline-flex items-center px-3 py-1 rounded-full text-[11px] font-mono font-semibold uppercase tracking-widest bg-[#34A853]/20 text-[#34A853] border border-[#34A853]/30 mb-5">
                 {featuredCase.tag}
               </div>
               <h3 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">
